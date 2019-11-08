@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌( 기초-2 )/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/react/react-apollo-with-graphql-tutorial/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(디렉토리-구조)/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌( 기초-1 )/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/cs/프로토콜-버퍼(protocol-buffer)/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
