@@ -1,4 +1,168 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Study Log]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://donguk.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 03:17:27 GMT</lastBuildDate><item><title><![CDATA[생활코딩 리눅스 강좌(cron, .bashrc)]]></title><description><![CDATA[CRON CRON 기본 명령어 정기적으로 명령을 실행시켜주는 소프트웨어 ( ex 백업, 정기적인 데이터 전송, 정기적으로 인터넷으로 시간조정? ) crontab -e  : 정기적으로 실행 시키고 싶은 작업을 설정 할 수 있음.  crontab -l…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(cron,-.bashrc)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(cron,-.bashrc)/</guid><pubDate>Sat, 16 Nov 2019 12:11:14 GMT</pubDate><content:encoded>&lt;h2 id=&quot;cron&quot;&gt;&lt;a href=&quot;#cron&quot; aria-label=&quot;cron permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CRON&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Study Log]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://donguk.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 08:05:22 GMT</lastBuildDate><item><title><![CDATA[생활코딩 리눅스 강좌(Permission)]]></title><description><![CDATA[Permission 의 예시 ls -l  의 Standard output 중에서 왼쪽 donguk이 나타내것은 소유자가 dengue 이라는 뜻 , 마지막 코드는 echo ‘hi’ 의 출력 값이 perm.txt…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</guid><pubDate>Sat, 16 Nov 2019 17:11:52 GMT</pubDate><content:encoded>&lt;h3 id=&quot;permission-의-예시&quot;&gt;&lt;a href=&quot;#permission-%EC%9D%98-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;permission 의 예시 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission 의 예시&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# donguk 유저&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~
+$ &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; perm.txt
+$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l perm.txt
+-rw-rw-r-- &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; donguk donguk &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; Nov &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;:24 perm.txt
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hi&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; perm.txt &lt;span class=&quot;token comment&quot;&gt;# echo 의 표준 출력을 redirection 하여 perm.txt 수정&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;ls -l &lt;/code&gt; 의 Standard output 중에서 왼쪽 donguk이 나타내것은 &lt;strong&gt;소유자가 dengue 이라는 뜻&lt;/strong&gt; , 마지막 코드는 &lt;code&gt;echo ‘hi’&lt;/code&gt; 의 출력 값이 perm.txt에 출력 되어 저장이 된다. ( 물론 nano, vi 등 에디터를 이용해서 perm.txt 수정 가능 )&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# permTest 유저&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /home/donguk
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;I want eddit&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; perm.txt
+Permission denied&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;perm.txt의 소유자가 donguk인데 permTest 유저가 이를 수정하려고 해서 Permission denied가 나온다.&lt;/p&gt;
+&lt;h3 id=&quot;permission-이해&quot;&gt;&lt;a href=&quot;#permission-%EC%9D%B4%ED%95%B4&quot; aria-label=&quot;permission 이해 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission 이해&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;-rw-rw-r-- &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; donguk donguk &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt; Nov &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;:24 perm.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-rw-rw-r—&lt;/code&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;맨 앞에 있는 &lt;code&gt;-&lt;/code&gt; : &lt;strong&gt;type&lt;/strong&gt; , 파일이면 - 디렉토리면 d 링크면 l&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rw-rw-r—&lt;/code&gt;  : &lt;strong&gt;access mode&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;첫번째 &lt;code&gt;rw-&lt;/code&gt; : &lt;strong&gt;소유자&lt;/strong&gt;의 권한이다&lt;/li&gt;
+&lt;li&gt;두번째  &lt;code&gt;rw-&lt;/code&gt; : 이 파일(또는 디렉토리, 링크) 가 속한 &lt;strong&gt;그룹&lt;/strong&gt;의 권한이다.&lt;/li&gt;
+&lt;li&gt;세번째 &lt;code&gt;r—&lt;/code&gt; : 이 OS에 속한 유저 중에서 소유자도 그룹도 아닌, &lt;strong&gt;다른 사용자의 권한&lt;/strong&gt;이다. ( others )&lt;/li&gt;
+&lt;li&gt;여기서 r 은 read, w는 write,  -에는 x가 들어올 수 있는데 이때 x는 exectue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;따라서 perm.txt 파일은 donguk이라는 사용자만 읽고 쓸수 있기 때문에, permTest 사용자(others)는 w 권한이 없어서 Permission denied가 뜬 것이다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;donguk donguk&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;첫번째 donguk은 이 파일의 소유자 이다. ( Owner )&lt;/li&gt;
+&lt;li&gt;두번째 donguk은 이 파일의 그룹이다. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;permission-변경&quot;&gt;&lt;a href=&quot;#permission-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;permission 변경 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission 변경&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+r perm.txt &lt;span class=&quot;token comment&quot;&gt;# other에게 읽기(read) 권한 부여&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; g+r perm.txt &lt;span class=&quot;token comment&quot;&gt;# 그룹에 읽기 권한 부여&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; u-w perm.txt &lt;span class=&quot;token comment&quot;&gt;# 소유자의 쓰기(write)을 뺌&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+w perm.txt &lt;span class=&quot;token comment&quot;&gt;# other에게 쓰기 권한 부여&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+w, g-r, u+r perm.txt &lt;span class=&quot;token comment&quot;&gt;# 한번에 여러개 설정 가능&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#심화&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;rwx perm.txt &lt;span class=&quot;token comment&quot;&gt;# 모든 사용자(a)가 rwx권한 얻는다.&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;r perm.txt &lt;span class=&quot;token comment&quot;&gt;# 모든 사용자가 읽기 권한만 갖는다.&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; a-r perm.txt &lt;span class=&quot;token comment&quot;&gt;# 모든 사용자에서 읽기 권한 해체&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;chmod [option] [file]&lt;/code&gt; : file의 권한을 변경하는 커맨드 이다. 옵션을 구성할 때 &lt;strong&gt;소유자는 u, 다른 사용자(other) 는 , 그룹은 g , 모든 사용자는 a로 나타낼수 있고 읽기는 r, 쓰기는 w, 실행은 x 를 사용하면 된다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;실행 권한&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img width=&quot;508&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 4 06 05&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68989491-0c6a7080-088b-11ea-8fc4-d57136c97741.png&quot;&gt;
+&lt;p&gt;vi 편집기를 이용해서 ‘test success!’ 를 출력하는 execute-test.sh 파일을 만들었다.&lt;/p&gt;
+&lt;img width=&quot;602&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 4 10 36&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68989536-a8947780-088b-11ea-96f2-3035316e76fa.png&quot;&gt;
+&lt;p&gt;/bin/bash 를 통해서 실행하면 파일이 실행 되지만( parser기를 통해서 특정 프로그래밍 언어를 실행 시키는건 제약이 없음..) , 이 파일을 만든 사용자가 파일을 실행하려고 하면 권한이 없다고 실행되지 않는다. ( access mode 부분이 rw- ) 따라서 소유자에게 실행권한을 추가 해줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; u+x execute-test.sh &lt;span class=&quot;token comment&quot;&gt;#소유자 에게 x권한 ( 실행 ) 부여&lt;/span&gt;
+$ ./execute-test.sh
+&lt;span class=&quot;token string&quot;&gt;&apos;test success!&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;directory-permission&quot;&gt;&lt;a href=&quot;#directory-permission&quot; aria-label=&quot;directory permission permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Directory Permission&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; perm&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;hi&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; perm.txt
+$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+$ drwxrwxr-x &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; donguk donguk &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; Nov &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;:24 perm
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o-r perm &lt;span class=&quot;token comment&quot;&gt;# other 의 읽기 권한 해체&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /home/donguk
+$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l perm
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# read권한이 없어서 파일열람 불가능&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+r perm
+
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l perm
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;파일 정보들&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# read 권한을 부여 받아서 열람 가능 &lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o-w perm &lt;span class=&quot;token comment&quot;&gt;# otehr에 쓰기 권한 해체&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm
+$ &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; a.txt 
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# otehr는 perm 디렉토리의 w권한이 없기 때문.&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; perm.txt
+Permission denied
+
+&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+w perm
+
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm
+$ &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; perm.txt &lt;span class=&quot;token comment&quot;&gt;# w 권한을 받아서 삭제 가능&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o-x perm
+
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm &lt;span class=&quot;token comment&quot;&gt;# exectue 권한이 없어서 perm 디렉토리에 들어갈수 없음.&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+x perm
+
+&lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm &lt;span class=&quot;token comment&quot;&gt;# execute 권한을 받아서 들어갈수 있음.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;디렉토리에서 &lt;code&gt;r&lt;/code&gt; 이라는 access mode의 권한은 그 디렉토리안에 있는 파일들을 열람 할 수 있는냐 없느냐와 관련이 된다. &lt;/p&gt;
+&lt;p&gt;그리고 디렉토리에서 &lt;code&gt;w&lt;/code&gt; 권한은 그 디렉토리 안에 있는 파일의 수정, 생성, 삭제와 관련이 된다. &lt;/p&gt;
+&lt;p&gt;마지막으로 디레곹리에서 &lt;code&gt;x&lt;/code&gt; 권한은 해당 디렉토리에 &lt;code&gt;cd&lt;/code&gt; 커맨드를 수행하는 것 과 관련된다.&lt;/p&gt;
+&lt;p&gt;만약 디렉토리 안에 디렉토리가 더 있고 한번에 권한을 바꾸고 싶다면 &lt;strong&gt;&lt;code&gt;chmod -R [option] [dir name]&lt;/code&gt;&lt;/strong&gt; 처럼 -R (recursive) 옵션을 주면 한번에 바꿔줄 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;permission을-변경하는-다른-방법&quot;&gt;&lt;a href=&quot;#permission%EC%9D%84-%EB%B3%80%EA%B2%BD%ED%95%98%EB%8A%94-%EB%8B%A4%EB%A5%B8-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;permission을 변경하는 다른 방법 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission을 변경하는 다른 방법&lt;/h3&gt;
+&lt;img width=&quot;254&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 4 50 20&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68990018-4dfe1a00-0891-11ea-8ed9-726fa1dfb152.png&quot;&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;444&lt;/span&gt; perm.txt &lt;span class=&quot;token comment&quot;&gt;# -r--r--r--&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; 000 perm.txt &lt;span class=&quot;token comment&quot;&gt;# ----------&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[생활코딩 리눅스 강좌(user)]]></title><description><![CDATA[id, who 유닉스는 다중사용자 시스템 uid는 user의 id, gid는 group의 id 즉 내가 staff라는 group에 속해 있다는 뜻 현재 내 맥북에는 hong 이라는 유저만 접속 해 있다. 관리자와 일반 사용자 ( super user…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(user)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(user)/</guid><pubDate>Sat, 16 Nov 2019 15:11:49 GMT</pubDate><content:encoded>&lt;h3 id=&quot;id-who&quot;&gt;&lt;a href=&quot;#id-who&quot; aria-label=&quot;id who permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;id, who&lt;/h3&gt;
+&lt;p&gt;유닉스는 다중사용자 시스템&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;#identify , 식별하다&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img width=&quot;1440&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 1 33 18&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68988109-b5a66c00-0875-11ea-85c8-6536a444a5c9.png&quot;&gt;
+&lt;p&gt;uid는 user의 id, gid는 group의 id 즉 내가 staff라는 group에 속해 있다는 뜻&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;who&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 현재 이 시스템에 누가 접속해 있는지 알 수 있음.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;img width=&quot;517&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 1 41 05&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68988173-c4415300-0876-11ea-9f02-e48551f5e4c4.png&quot;&gt;
+&lt;p&gt;현재 내 맥북에는 hong 이라는 유저만 접속 해 있다.&lt;/p&gt;
+&lt;h3 id=&quot;관리자와-일반-사용자--super-userroot-vs-user-&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EB%A6%AC%EC%9E%90%EC%99%80-%EC%9D%BC%EB%B0%98-%EC%82%AC%EC%9A%A9%EC%9E%90--super-userroot-vs-user-&quot; aria-label=&quot;관리자와 일반 사용자  super userroot vs user  permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관리자와 일반 사용자 ( super user(root) vs user )&lt;/h3&gt;
+&lt;img width=&quot;311&quot; alt=&quot;&amp;#xC2A4;&amp;#xD06C;&amp;#xB9B0;&amp;#xC0F7; 2019-11-16 &amp;#xC624;&amp;#xD6C4; 1 46 14&quot; src=&quot;https://user-images.githubusercontent.com/39187116/68988245-7d079200-0877-11ea-9c26-44bf68a98816.png&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Shell에서 $는 일반사용자를 나타내고 #은 관리자( root) 를 나타낸다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;su [option] [username]&lt;/code&gt; : 사용자를 변경하거나( A사용자 -&gt; B사용자 ), 관리자로 변경하고 싶을때 사용&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;su - root&lt;/code&gt;: 관리자로 변경 ( 초기 비밀번호를 설정하지 않았다면 &lt;code&gt;sudo -s&lt;/code&gt;  로 설정 )&lt;/li&gt;
+&lt;li&gt;웬만한 작업은 &lt;code&gt;sudo&lt;/code&gt; 를 사용하자.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;몇몇 OS는 root 사용자에 대한 권한을 막아놨음. unlock하는 방법은?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;passwd&lt;/span&gt; -u root &lt;span class=&quot;token comment&quot;&gt;# root를 unlock&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;반대로 OS의 root 사용자를 lock 하는 방법은 ?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;passwd&lt;/span&gt; -l root &lt;span class=&quot;token comment&quot;&gt;# root를 lockd&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;l&lt;/code&gt; 옵션을 이용해서 root 사용자 계정에 접근 하는 것을 막을 수 있다. ( &lt;em&gt;Mac에서는 passwd 에 대한 옵션이 일반 unix 계열 OS 와 다르다..&lt;/em&gt; )&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;관리자와 일반 사용자의 home directory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; - root
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~ &lt;span class=&quot;token comment&quot;&gt;# 현재 사용자의 home directory로 이동&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;pwd&lt;/span&gt;
+/root &lt;span class=&quot;token comment&quot;&gt;# 일반 unix 계열 OS는 /root(root 디렉토리의 root 디렉토리.. /+ root ), Mac은 /var/root&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 일반 사용자로 전환!&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;pwd&lt;/span&gt;
+/home/hong &lt;span class=&quot;token comment&quot;&gt;# 일반 unix 계열 OS는 /home/[user] 로 존재, Mac은 /Users/[user]로 존재&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;사용자-추가하기&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot; aria-label=&quot;사용자 추가하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용자 추가하기&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;sudo useradd -m [name]&lt;/code&gt; : name 이라는 사용자 추가, -m은 home directory도 같이 만들어줌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac은 일반 unix 계열과 다르다. &lt;a href=&quot;https://apple.stackexchange.com/questions/4814/can-user-accounts-be-managed-via-the-command-line/4981#4981&quot;&gt;https://apple.stackexchange.com/questions/4814/can-user-accounts-be-managed-via-the-command-line/4981#4981&lt;/a&gt; 를 참고 하면된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;su - [username]&lt;/code&gt; : 입력한 username으로 사용자 변경&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useradd&lt;/span&gt; -m donguk
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;passwd&lt;/span&gt; donguk &lt;span class=&quot;token comment&quot;&gt;# 추가한 유저 초기 비밀번호 설정&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+$ &lt;span class=&quot;token function&quot;&gt;su&lt;/span&gt; - donguk &lt;span class=&quot;token comment&quot;&gt;# donguk으로 사용자 변경&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;사용자에 sudo 권한 사용할 수 있게 하기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;usermod&lt;/span&gt; -a -G &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;username&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# sudo 권한을 사용할 수 있는 유저에서 입력해야 한다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;- a (append)&lt;/code&gt; 옵션은 어떤 그룹에 사용자를 추가 하는 옵션, 이 옵션은 &lt;code&gt;-G(groups)&lt;/code&gt; 옵션과 함께 사용해야 한다. &lt;code&gt;-G&lt;/code&gt; 어떤 그룹이라는 개념에 사용자를 grouping 하는 옵션. 즉 sudo 를 사용하는 그룹에 유저를 추가한다~ 느낌.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[생활코딩 리눅스 강좌(cron, .bashrc)]]></title><description><![CDATA[CRON CRON 기본 명령어 정기적으로 명령을 실행시켜주는 소프트웨어 ( ex 백업, 정기적인 데이터 전송, 정기적으로 인터넷으로 시간조정? ) crontab -e  : 정기적으로 실행 시키고 싶은 작업을 설정 할 수 있음.  crontab -l…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(cron,-.bashrc)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(cron,-.bashrc)/</guid><pubDate>Sat, 16 Nov 2019 12:11:14 GMT</pubDate><content:encoded>&lt;h2 id=&quot;cron&quot;&gt;&lt;a href=&quot;#cron&quot; aria-label=&quot;cron permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CRON&lt;/h2&gt;
 &lt;h4 id=&quot;cron-기본-명령어&quot;&gt;&lt;a href=&quot;#cron-%EA%B8%B0%EB%B3%B8-%EB%AA%85%EB%A0%B9%EC%96%B4&quot; aria-label=&quot;cron 기본 명령어 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CRON 기본 명령어&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;정기적으로 명령을 실행시켜주는 소프트웨어 ( ex 백업, 정기적인 데이터 전송, 정기적으로 인터넷으로 시간조정? )&lt;/li&gt;
@@ -30,6 +194,7 @@ $ &lt;span class=&quot;token number&quot;&gt;0,20&lt;/span&gt;,40 * * * * &lt;sp
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;crontab&lt;/span&gt; -e
 &lt;span class=&quot;token comment&quot;&gt;### crontab&lt;/span&gt;
 $ &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; * * * /home/ubuntu/clearTemp.sh &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&gt;&lt;/span&gt; error.log &lt;span class=&quot;token comment&quot;&gt;# 매일 아침 8시마다 자동으로 비워주기 오류있으면 error.log 에 로깅&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;추가적으로 Mac 에서 1분 마다 echo ‘crontab test’ 명령어를 수행하게 하였는데, 쉘에 바로 나타나지 않고 /var/mail/[사용자] 디렉토리에 로깅 된다는 것을 알았다.&lt;/p&gt;
 &lt;br/&gt;
 &lt;h2 id=&quot;쉘을-시작할-때-실행&quot;&gt;&lt;a href=&quot;#%EC%89%98%EC%9D%84-%EC%8B%9C%EC%9E%91%ED%95%A0-%EB%95%8C-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;쉘을 시작할 때 실행 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쉘을 시작할 때 실행&lt;/h2&gt;
 &lt;ul&gt;
@@ -43,6 +208,12 @@ $ &lt;span class=&quot;token builtin class-name&quot;&gt;alias&lt;/span&gt; &lt;
 &lt;ul&gt;
 &lt;li&gt;bash shell은 쉘이 실행 될 때 &lt;code&gt;.bashrc&lt;/code&gt; 를 실행하기 때문.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.bashrc&lt;/code&gt; 에 alias 프로그램으로 커맨드를 단축어로 지정해 놓으면 편하다!&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fish shell 은 조금 다르다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~/.config/fish
+$ &lt;span class=&quot;token function&quot;&gt;vi&lt;/span&gt; config.fish &lt;span class=&quot;token comment&quot;&gt;# 이곳에 추가 해주면 된다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[생활코딩 리눅스 강좌(Daemon)]]></title><description><![CDATA[Daemon 의 개념 데몬에 해당하는 프로그램은 항상  켜져 있음. ls, mkdir, cd 이런 프로그램들은 데몬이 아님. 소위 server ( 예를들어 web server…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(daemon)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(daemon)/</guid><pubDate>Thu, 14 Nov 2019 02:12:36 GMT</pubDate><content:encoded>&lt;h3 id=&quot;daemon-의-개념&quot;&gt;&lt;a href=&quot;#daemon-%EC%9D%98-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;daemon 의 개념 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Daemon 의 개념&lt;/h3&gt;
 &lt;ul&gt;
