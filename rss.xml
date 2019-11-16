@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Study Log]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://donguk.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 08:08:11 GMT</lastBuildDate><item><title><![CDATA[생활코딩 리눅스 강좌(Permission)]]></title><description><![CDATA[Permission 의 예시 ls -l  의 Standard output 중에서 왼쪽 donguk이 나타내것은 소유자가 donguk 이라는 뜻 , 마지막 코드는 echo ‘hi’ 의 출력 값이 perm.txt…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</guid><pubDate>Sat, 16 Nov 2019 17:11:52 GMT</pubDate><content:encoded>&lt;h3 id=&quot;permission-의-예시&quot;&gt;&lt;a href=&quot;#permission-%EC%9D%98-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;permission 의 예시 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission 의 예시&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Study Log]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://donguk.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 12:53:47 GMT</lastBuildDate><item><title><![CDATA[생활코딩 리눅스 강좌(Group)]]></title><description><![CDATA[Group user(소유자) 도 other도 아닌 어떤 사용자들을 그룹화 해보자 /var 폴더의 소유자는  image . 부분을 확인 해보면 root 이다. 따라서 /var 디렉토리에 mkdir 프로그램을 실행 하기 위해서는 access mode…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(group)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(group)/</guid><pubDate>Sat, 16 Nov 2019 21:12:01 GMT</pubDate><content:encoded>&lt;h2 id=&quot;group&quot;&gt;&lt;a href=&quot;#group&quot; aria-label=&quot;group permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Group&lt;/h2&gt;
+&lt;p&gt;user(소유자) 도 other도 아닌 어떤 사용자들을 그룹화 해보자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# test1 user와 test2 user를 developer 그룹으로 묶는 예제&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# /var 안에 developer를 만들고 이 폴더의 그룹 권한을 developer로 지정해보자&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /var &lt;span class=&quot;token comment&quot;&gt;# 변화가 많은 파일들이 모여있는 디렉토리&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; developer
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# 1&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; developer
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; developer
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hi my group&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;group.txt&apos;&lt;/span&gt;
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# 2&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;groupadd&lt;/span&gt; developer
+Permission denied
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;groupadd&lt;/span&gt; developer
+$ &lt;span class=&quot;token function&quot;&gt;nano&lt;/span&gt; /etc/group &lt;span class=&quot;token comment&quot;&gt;# 4&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;usermod&lt;/span&gt; -a -G developer test1 &lt;span class=&quot;token comment&quot;&gt;# 5&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;usermod&lt;/span&gt; -a -G developer test2
+Permission denied
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; 
+$ &lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; -i ~ &lt;span class=&quot;token comment&quot;&gt;# 다시 접속 해야 수정된 사항 반영!&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /var/developer
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;chown&lt;/span&gt; root:developer &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 6&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hi my group&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;group.txt&apos;&lt;/span&gt;
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# 같은 그룹이지만.. 그룹에 쓰기 권한이 없다.&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; g+w &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 현재 디렉토리의 그룹 권한에 w 권한 부여&lt;/span&gt;
+$ &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hi my group&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;group.txt&apos;&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -al &lt;span class=&quot;token comment&quot;&gt;# group.txt 확인 가능&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;/var 폴더의 소유자는 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/39187116/68993037-9419a480-08b6-11ea-8899-ba18bb93f149.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;. 부분을 확인 해보면 root 이다. 따라서 /var 디렉토리에 mkdir 프로그램을 실행 하기 위해서는 access mode의 other부분에 쓰기(w) 권한이 있어야 한다.&lt;/p&gt;
+&lt;p&gt;첫번째 방법은 root 사용자로 로그인 ( &lt;code&gt;su - root&lt;/code&gt;) 하여 chmod 명령어를 통해 디렉토리 권한을 바꿔주는 방법(&lt;code&gt;chmod o=rwx /var&lt;/code&gt;)이 있지만, 보안상 으로도 좋지 않고 귀찮은 방법 이다. 따라서 현재 사용자에 &lt;code&gt;sudo&lt;/code&gt; 프로그램을 이용하여 mkdir 프로그램을 실행하자&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;1번과 같은 other에 속한 사용자는 w 권한이 없어서 파일을 생성 할 수 없다. 하지만 이 폴더의 그룹을 developer로 변경 후 권한을 부여 한다면 developer에 속한 사용자는 /var/developer 폴더 안에서 자유롭게 읽고 쓰고 실행 하는 권한을 가질 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;groupadd [group name]&lt;/code&gt; 을 이용하여 그룹을 추가 하려고 하였지만, 이 명령어는 일반 사용자의 권한으로는 실행 할 수 없다.  sudo 권한을 이용해야 한다. &lt;strong&gt;!! 를 이용하면 이전 명령어를 수행하게 할 수 있다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/group&lt;/code&gt; 파일은 unix 계열의 시스템에서 그룹에 관한 정보를 담고 있는 파일이다. 여기서 그룹 정보를 확인 할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;usermod&lt;/code&gt; 는 user modify의 약자이다. &lt;code&gt;usermod&lt;/code&gt; 는 -a ( append ) -G (group) 옵션과 함께 사용자를 그룹에 지정할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chown [owner]:[group-name] [directory]&lt;/code&gt; : chown  프로그램은 현재 디렉토리의 소유자와 그룹을 변경 할 수 있다. 위 에서는 developer 디렉토리의 group을 developer로 변경한 것 이다.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[생활코딩 리눅스 강좌(Permission)]]></title><description><![CDATA[Permission 의 예시 ls -l  의 Standard output 중에서 왼쪽 donguk이 나타내것은 소유자가 donguk 이라는 뜻 , 마지막 코드는 echo ‘hi’ 의 출력 값이 perm.txt…]]></description><link>https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</link><guid isPermaLink="false">https://donguk.netlify.com/linux/생활코딩-리눅스-강좌(permission)/</guid><pubDate>Sat, 16 Nov 2019 17:11:52 GMT</pubDate><content:encoded>&lt;h3 id=&quot;permission-의-예시&quot;&gt;&lt;a href=&quot;#permission-%EC%9D%98-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;permission 의 예시 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Permission 의 예시&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# donguk 유저&lt;/span&gt;
 $ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~
 $ &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; perm.txt
@@ -22,7 +64,7 @@ Permission denied&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;첫번째 &lt;code&gt;rw-&lt;/code&gt; : &lt;strong&gt;소유자&lt;/strong&gt;의 권한이다&lt;/li&gt;
 &lt;li&gt;두번째  &lt;code&gt;rw-&lt;/code&gt; : 이 파일(또는 디렉토리, 링크) 가 속한 &lt;strong&gt;그룹&lt;/strong&gt;의 권한이다.&lt;/li&gt;
 &lt;li&gt;세번째 &lt;code&gt;r—&lt;/code&gt; : 이 OS에 속한 유저 중에서 소유자도 그룹도 아닌, &lt;strong&gt;다른 사용자의 권한&lt;/strong&gt;이다. ( others )&lt;/li&gt;
-&lt;li&gt;여기서 r 은 read, w는 write,  -에는 x가 들어올 수 있는데 이때 x는 exectue&lt;/li&gt;
+&lt;li&gt;여기서 r 은 read, w는 write,  -에는 x가 들어올 수 있는데 이때 x는 execute&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;따라서 perm.txt 파일은 donguk이라는 사용자만 읽고 쓸수 있기 때문에, permTest 사용자(others)는 w 권한이 없어서 Permission denied가 뜬 것이다.&lt;/p&gt;
 &lt;/li&gt;
@@ -63,7 +105,7 @@ $ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o-r perm &lt;s
 &lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
 $ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /home/donguk
 $ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l perm
-Permission denied &lt;span class=&quot;token comment&quot;&gt;# read권한이 없어서 파일열람 불가능&lt;/span&gt;
+Permission denied &lt;span class=&quot;token comment&quot;&gt;# read 권한이 없어서 파일열람 불가능&lt;/span&gt;
 
 &lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
 $ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o+r perm
@@ -74,6 +116,7 @@ $ &lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -l perm
 
 &lt;span class=&quot;token comment&quot;&gt;#donguk user&lt;/span&gt;
 $ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; o-w perm &lt;span class=&quot;token comment&quot;&gt;# otehr에 쓰기 권한 해체&lt;/span&gt;
+
 &lt;span class=&quot;token comment&quot;&gt;#permTest user&lt;/span&gt;
 $ &lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; perm
 $ &lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; a.txt 
