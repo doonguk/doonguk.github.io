@@ -155,17 +155,17 @@
 <span class="token punctuation">)</span> <span class="token comment">// [11, 13]</span></code></pre></div>
 <p><strong>엄격한 방식의 계산의 순서</strong>는</p>
 <ul>
-<li>range(10) => L.map(a => a+10) => L.filter( a => a % 2) => take(2) => log</li>
+<li>range(10) => map(a => a+10) => filter( a => a % 2) => take(2) => log</li>
 </ul>
 <p>처럼 <strong>가로방향으로 순차적으로 이전 함수의 결과가 다음 함수에 전달되는 형식으로 실행</strong> 되었다.</p>
 <p>그럼 느긋한 계산 방식은 어떤점이 다를까? 결론부터 말하면 느긋한 계산방식은 위 코드를 실행 시켰을 때 <strong>가장 먼저 실행되는 함수는 take 함수이다.</strong> 그 이유를 살펴보자.</p>
 <p><img src="https://user-images.githubusercontent.com/39187116/70371878-da917a80-191b-11ea-84e9-a33d6b7ee0a4.png" alt="image"></p>
 <p>break point를 찍었을 때 가장 먼저 break가 걸린 구간을 확인한 결과이다. 보이는 것과 같이 take 함수에서 break 포인트가 걸렸다.</p>
 <p>이유는 <strong>L.range, L.map, L.filter 함수는 제너레이터이다. 제너레이터는 함수 자체를 실행 했을때는 내부 코드가 동작하지 않고 제너레이터에 의해 생성된 이터레이터가 next() 함수를 호출 했을 때 제너레이터 내부의 코드가 동작한다.</strong></p>
-<p>따라서 L.range(10) 함수를 실행 시켰을 때 함수 내부의 코드가 동작하지 않고 일단 이터레이터를 리턴한다. 이 이터레이터는 L.map 함수의 파라미터로 전달 된다. 하지만 L.map 함수 역시 제너레이터기 때문에 L.map 함수가 리턴하는 이터레이터의 next() 함수가 호출 될 때 까지 함수 내부의 코드가 동작하지 않고 바로 이터레이터를 리턴한다. 이 이터레이터는 filter 함수의 파타미터로 전달 되는데 filter 함수 역시 제너레이터 이기 때문에 filter 함수 역시 이터레이터를 리턴하고 take 함수가 이것을 받는다.</p>
+<p>따라서 L.range(10) 함수를 실행 시켰을 때 함수 내부의 코드가 동작하지 않고 일단 이터레이터를 리턴한다. 이 이터레이터는 L.map 함수의 파라미터로 전달 된다. 하지만 L.map 함수 역시 제너레이터기 때문에 L.map 함수가 리턴하는 이터레이터의 next() 함수가 호출 될 때 까지 함수 내부의 코드가 동작하지 않고 바로 이터레이터를 리턴한다. 이 이터레이터는 L.filter 함수의 파타미터로 전달 되는데 L.filter 함수 역시 제너레이터 이기 때문에 이터레이터를 리턴하고 take 함수가 이것을 받는다.</p>
 <p>정리해보면</p>
 <ul>
-<li>range(10) 실행 => range 함수가 이터레이터 리턴 => map 함수가 이터레이터 리턴 => filter 함수가 이터레이터 리턴 => take 함수 실행</li>
+<li>L.range(10) 실행 => L.range 함수가 이터레이터 리턴 => L.map 함수가 이터레이터 리턴 => L.filter 함수가 이터레이터 리턴 => take 함수 실행</li>
 </ul>
 <p>그 다음 동작을 살펴보자.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">//take 함수</span>
@@ -174,27 +174,27 @@ iter <span class="token operator">=</span> iter<span class="token punctuation">[
 <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>cur <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// iter.next() => filter 함수 내부코드 동작</span>
   <span class="token operator">...</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>take 함수는 filter 함수의 이터레이터를 받았기 때문에  iter.next() 함수를 호출 하였을 때 filter 함수의 내부코드가 동작한다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">//filter 함수</span>
+<p>take 함수는 L.filter 함수의 이터레이터를 받았기 때문에  iter.next() 함수를 호출 하였을 때 L.filter 함수의 내부코드가 동작한다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">//L.filter 함수</span>
 <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>cur <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// iter.next() => Map 함수 내부코드 동작</span>
   <span class="token operator">...</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>filter 함수의 내부코드가 동작 하는데 이 함수가 받은 이터레이터는 Map 함수의 이터레이터이다. 따라서 filter 함수 내부의 iter.next()는 Map 함수 내부의 코드를 동작 시킨다. 같은 방식으로 Map 함수의 인자 이터레이터가 next() 함수를 호출하면 range() 함수내부 코드가 동작한다. </p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Map 함수</span>
+<p>L.filter 함수의 내부코드가 동작 하는데 이 함수가 받은 이터레이터는 L.map 함수의 이터레이터이다. 따라서 L.filter 함수 내부의 iter.next()는 L.map 함수 내부의 코드를 동작 시킨다. 같은 방식으로 L.map 함수의 인자 이터레이터가 next() 함수를 호출하면 L.range() 함수내부 코드가 동작한다. </p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// L.map 함수</span>
 <span class="token keyword">let</span> cur <span class="token comment">// range 함수에서 yield 한 { value : 0, done : false} 값 저장</span>
 <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>cur <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> a <span class="token operator">=</span> cur<span class="token punctuation">.</span>value <span class="token comment">// 0</span>
   <span class="token keyword">yield</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>range 함수에서는 인자로 받은 이터레이터가 없기 때문에 내부 코드가 동작하면 Map 함수 내부의 cur값에 자신이 yield 한 { value : 0, done : false } 값이 저장된다. </p>
-<p>map 함수는 cur.value 값이 저장된 a 를 자신이 받은 함수로 평가하여 yield 하고 이를 filter 함수 내부의 cur 값에 저장한다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// filter 함수</span>
+<p>L.range 함수에서는 인자로 받은 이터레이터가 없기 때문에 내부 코드가 동작하면 L.map 함수 내부의 cur값에 자신이 yield 한 { value : 0, done : false } 값이 저장된다. </p>
+<p>L.map 함수는 cur.value 값이 저장된 a 를 자신이 받은 함수로 평가하여 yield 하고 이를 L.filter 함수 내부의 cur 값에 저장한다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// L.filter 함수</span>
 <span class="token keyword">let</span> cur <span class="token comment">// map 함수에서 yield 한 { value : 10, done : false } 값 저장</span>
 <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>cur <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">const</span> a <span class="token operator">=</span> cur<span class="token punctuation">.</span>value <span class="token comment">// 10</span>
   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">yield</span> a
 <span class="token punctuation">}</span></code></pre></div>
-<p>여기서 평가된 a는 if 조건문을 만족 시키지 않기 때문에 ( 10 => 10 % 2 ) filter 함수는 take 함수로 값을 yield 하지 않고 다시 while 문을 돌게 된다. 그럼 iter.next() 함수에 의해 다시 map 함수의 제너레이터 내부 코드 실행 시키고 이는 range 함수의 내부코드를 실행시켜 range함수는 { value : 1, done : false }를 yield 한다. 이 값을 map 함수에서는 { value : 11, done : false } 로 yield 하고 filter 함수에서 f(a) 조건문을 총족시켜 take 함수로 값을 yield 한다.</p>
+<p>여기서 평가된 a는 if 조건문을 만족 시키지 않기 때문에 ( 10 => 10 % 2 ) L.filter 함수는 take 함수로 값을 yield 하지 않고 다시 while 문을 돌게 된다. 그럼 iter.next() 함수에 의해 다시 L.map 함수의 제너레이터 내부 코드 실행 시키고 이는 L.range 함수의 내부코드를 실행시켜 L.range함수는 { value : 1, done : false }를 yield 한다. 이 값을 L.map 함수에서는 { value : 11, done : false } 로 yield 하고 L.filter 함수에서 f(a) 조건문을 총족시켜 take 함수로 값을 yield 한다.</p>
 <p>이것이 느긋한 방식으로 코딩된 함수들의 계산 순서이다.</p>
 <p>결론을 지으면 <strong>엄격한 계산은 각 함수에서 리스트를 생성하여 다음 함수로 리스트를 전달하는 계산 순서를 갖는다면 ( 가로방식 ), 느긋한 계산 방식은 값 하나씩 yield 하는 방식 즉,</strong></p>
 <ul>
