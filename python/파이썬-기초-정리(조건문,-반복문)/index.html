@@ -118,11 +118,11 @@ r <span class="token operator">=</span> <span class="token punctuation">(</span>
 <p>위 예제의 더 간단한 코드 ( 내부함수 sum을 이용 )</p>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'sum'</span><span class="token punctuation">,</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
 <ul>
-<li><strong>range는 이터레이터를 리턴하는 제너레이터</strong></li>
+<li>*<em>range 함슈는 이터레이터를 return</em></li>
 <li>Sum 함수는 이터러블을 파라미터로 받음.</li>
 </ul>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># 예제) 4의 배수 합</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'4의 배수'</span><span class="token punctuation">,</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'4의 배수'</span><span class="token punctuation">,</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1001</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
 <ul>
 <li>range 함수의 속성을 사용하여 배수 구할 수 있음</li>
 </ul>
