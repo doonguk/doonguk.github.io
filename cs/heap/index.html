@@ -113,7 +113,7 @@
 <p>다음 세 가지 규칙을 이용해서 구현</p>
 <ol>
 <li>루트 노드가 항상 최댓값을 가진다.</li>
-<li>반드시 완전 이진 트리이어야 한다.</li>
+<li>반드시 완전 이진 트리이어야 한다. ( 포화 이진 트리에서 오른쪽 leaf 부터 제거 )</li>
 <li>최대 힙 내의 임의의 노드를 루트로 하는 서브트리 또한 최대 힙이다.</li>
 </ol>
 <div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MaxHeap</span><span class="token punctuation">:</span>
@@ -145,7 +145,7 @@
         largest <span class="token operator">=</span> i
         <span class="token keyword">if</span> left <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token keyword">and</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">:</span>
             largest <span class="token operator">=</span> left
-        <span class="token keyword">if</span> right <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token keyword">and</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>largest<span class="token punctuation">]</span> <span class="token operator">></span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> right <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token keyword">and</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>largest<span class="token punctuation">]</span> <span class="token operator">&lt;</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">:</span>
             largest <span class="token operator">=</span> right
         <span class="token keyword">if</span> largest <span class="token operator">!=</span> i<span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>largest<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>largest<span class="token punctuation">]</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
