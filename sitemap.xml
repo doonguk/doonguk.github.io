@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://donguk.netlify.com/javascript/js의--프로토타입/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/javascript/메모리-힙-&amp;-콜-스택/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/leetcode/20200529-리트코드/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://donguk.netlify.com/cs/브라우저-렌더링-과정/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
